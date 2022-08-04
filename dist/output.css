@@ -454,6 +454,16 @@ main {
   }
 }
 
+#login {
+  flex-direction: column-reverse;
+}
+
+@media (min-width: 768px) {
+  #login {
+    flex-direction: row;
+  }
+}
+
 section {
   display: flex;
   height: 25%;
@@ -485,6 +495,12 @@ section {
   section {
     padding-left: 7rem;
     padding-right: 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  #login > section {
+    align-items: flex-start;
   }
 }
 
@@ -544,6 +560,13 @@ hr {
   border-bottom-width: 1px;
   --tw-border-opacity: 1;
   border-color: rgb(233 213 255 / var(--tw-border-opacity));
+}
+
+form > a {
+  width: 100%;
+  text-align: left;
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 *, ::before, ::after {
@@ -698,7 +721,8 @@ hr {
   justify-content: space-evenly;
 }
 
-.cards {
+.cards, 
+  .login {
   height: 75%;
   overflow: hidden;
   --tw-bg-opacity: 1;
@@ -706,15 +730,25 @@ hr {
 }
 
 @media (min-width: 768px) {
-  .cards {
+  .cards, 
+  .login {
     height: 100%;
   }
 }
 
 @media (min-width: 1024px) {
-  .cards {
+  .cards, 
+  .login {
     align-items: flex-start;
   }
+
+  #login > .login {
+    align-items: flex-end;
+  }
+}
+
+.login {
+  height: 100%;
 }
 
 .logo {
@@ -758,7 +792,8 @@ section > h3 {
   height: 16.666667%;
 }
 
-.card-sign-up {
+.card-sign-up, 
+  .card-login {
   display: flex;
   height: 100%;
   width: -webkit-fit-content;
@@ -771,10 +806,13 @@ section > h3 {
   overflow-y: scroll;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 @media (min-width: 768px) {
-  .card-sign-up {
+  .card-sign-up, 
+  .card-login {
     height: 83.333333%;
     justify-content: center;
     gap: 1rem;
@@ -782,17 +820,20 @@ section > h3 {
   }
 }
 
-.card-sign-up::-webkit-scrollbar {
+.card-sign-up::-webkit-scrollbar, 
+  .card-login::-webkit-scrollbar {
   display: none;
 }
 
-.card-sign-up h3 {
+.card-sign-up h3, 
+  .card-login h3 {
   text-align: left;
   font-size: 1.5rem;
   line-height: 2rem;
 }
 
-.card-sign-up > div {
+.card-sign-up > div, 
+  .card-login > div {
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -823,7 +864,9 @@ small > a:hover {
           text-decoration-line: underline;
 }
 
-.card-sign-up form {
+.card-sign-up form, 
+  .card-login form {
+  margin: 0.25rem;
   display: flex;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -837,7 +880,12 @@ small > a:hover {
   gap: 0.75rem;
 }
 
-.card-sign-up .form-group {
+.card-login form {
+  width: 100%;
+}
+
+.card-sign-up .form-group, 
+  .card-login .form-group {
   position: relative;
   margin: auto;
   display: flex;
@@ -853,12 +901,14 @@ small > a:hover {
 }
 
 @media (min-width: 768px) {
-  .card-sign-up .form-group {
+  .card-sign-up .form-group, 
+  .card-login .form-group {
     align-items: center;
   }
 }
 
-.card-sign-up label {
+.card-sign-up label, 
+  .card-login label {
   position: absolute;
   top: 0.75rem;
   left: 1rem;

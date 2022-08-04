@@ -1,19 +1,18 @@
 function showPassword() {
   const btn = document.querySelector(".btnShowPassword");
-  const password = document.getElementById("password");
-  const confirmPassword = document.getElementById("confirm-password");
-  btn.addEventListener("click", () => {
-    if (password.type == "password") {
-      password.setAttribute("type", "text");
-      confirmPassword.setAttribute("type", "text");
-      btn.classList.remove("bi-eye-slash-fill");
-      btn.classList.add("bi-eye-fill");
-    } else {
-      password.setAttribute("type", "password");
-      confirmPassword.setAttribute("type", "password");
-      btn.classList.remove("bi-eye-fill");
-      btn.classList.add("bi-eye-slash-fill");
-    }
-  });
+  const inputs = document.querySelectorAll("input[type='password']");
+  for (let e = 0; e in inputs; e++) {
+    btn.addEventListener("click", () => {
+      if (inputs[e].type == "password") {
+        inputs[e].setAttribute("type", "text");
+        btn.classList.remove("bi-eye-slash-fill");
+        btn.classList.add("bi-eye-fill");
+      } else if (inputs[e].type == "text") {
+        inputs[e].attributes[0].value = "password";
+        btn.classList.remove("bi-eye-fill");
+        btn.classList.add("bi-eye-slash-fill");
+      }
+    });
+  }
 }
 showPassword();

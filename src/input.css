@@ -12,8 +12,14 @@
   main {
     @apply w-full h-full bg-purple-200 rounded-2xl flex flex-col md:flex-row justify-center items-center;
   }
+  #login {
+    @apply flex-col-reverse md:flex-row;
+  }
   section {
     @apply w-full h-1/4 p-3 md:w-1/2 md:h-full flex flex-col justify-center items-center md:items-center rounded-2xl lg:px-14 xl:px-28 lg:items-end;
+  }
+  #login > section {
+    @apply lg:items-start;
   }
   h1 {
     @apply w-3/4 md:w-fit md:text-5xl text-3xl uppercase font-extrabold;
@@ -34,13 +40,23 @@
   hr {
     @apply w-1/2 my-3 border-t-0 border-b border-purple-200;
   }
+  form > a {
+    @apply w-full text-xs text-left;
+  }
 }
 @layer components {
   .content {
     @apply w-fit h-5/6 flex flex-col justify-evenly items-center;
   }
-  .cards {
+  .cards,
+  .login {
     @apply h-3/4 md:h-full bg-purple-100 lg:items-start overflow-hidden;
+  }
+  #login > .login {
+    @apply lg:items-end;
+  }
+  .login {
+    @apply h-full;
   }
   .logo {
     @apply w-full h-5/6 md:h-2/6 flex flex-col justify-center items-center md:gap-3;
@@ -54,16 +70,20 @@
   section > h3 {
     @apply h-1/6;
   }
-  .card-sign-up {
-    @apply w-fit h-full max-w-3xl md:h-5/6 py-2 md:p-5 flex flex-col justify-start md:justify-center items-center md:gap-4 overflow-y-scroll;
+  .card-sign-up,
+  .card-login {
+    @apply w-fit h-full max-w-3xl md:h-5/6 py-2 px-1 md:p-5 flex flex-col justify-start md:justify-center items-center md:gap-4 overflow-y-scroll;
   }
-  .card-sign-up::-webkit-scrollbar {
+  .card-sign-up::-webkit-scrollbar,
+  .card-login::-webkit-scrollbar {
     @apply hidden;
   }
-  .card-sign-up h3 {
+  .card-sign-up h3,
+  .card-login h3 {
     @apply text-left text-2xl;
   }
-  .card-sign-up > div {
+  .card-sign-up > div,
+  .card-login > div {
     @apply w-full flex flex-row justify-evenly items-center gap-3 flex-wrap;
   }
   div > a {
@@ -78,13 +98,19 @@
   small > a:hover {
     @apply underline;
   }
-  .card-sign-up form {
-    @apply w-fit h-fit flex flex-col justify-center items-center gap-3;
+  .card-sign-up form,
+  .card-login form {
+    @apply w-fit h-fit m-1 flex flex-col justify-center items-center gap-3;
   }
-  .card-sign-up .form-group {
+  .card-login form {
+    @apply w-full;
+  }
+  .card-sign-up .form-group,
+  .card-login .form-group {
     @apply w-full h-fit max-w-lg m-auto p-2 relative flex justify-center items-start md:items-center gap-1;
   }
-  .card-sign-up label {
+  .card-sign-up label,
+  .card-login label {
     @apply absolute top-3 left-4 text-opacity-50 transition-all ease-linear duration-150;
   }
   input:focus ~ label,
