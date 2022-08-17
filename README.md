@@ -1,4 +1,4 @@
-# Login-SignUp
+# Login and registration page with Tailwind
 ### SignUp - desktop
 ![SignUp - Store](https://user-images.githubusercontent.com/99296104/185115352-7f5e490b-defe-4af0-be89-75c16f6d12bc.png)
 
